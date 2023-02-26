@@ -31,7 +31,7 @@ class Transaksi extends Model
         return [
             'kode_transaksi' => [
                 'format' => function () {
-                    return 'DPSVB' . date('dmY') . '?'; // autonumber format. '?' will be replaced with the generated number.
+                    return 'SVB' . date('dmY') . '?'; // autonumber format. '?' will be replaced with the generated number.
                 },
                 'length' => 3 // The number of digits in the autonumber
             ]

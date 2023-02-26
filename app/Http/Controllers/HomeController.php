@@ -17,7 +17,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('welcome');
+        $id = Auth()->user()->id;
+        $rekening = Rekening::where('user_id', $id)->get();
+        return view('users.dashboard', compact('rekening'));
     }
 
     public function adminHome()

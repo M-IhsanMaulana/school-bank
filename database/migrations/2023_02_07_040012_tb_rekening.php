@@ -26,11 +26,10 @@ return new class extends Migration
             $table->integer('pin');
             $table->integer('total_saldo');
             $table->enum('status_rek', ['disable', 'enable', 'blocked']);
-            $table->dateTime('tgl_aktivasi');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('kelas_id')->references('id')->on('tb_kelas')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('null');
+            $table->foreign('kelas_id')->references('id')->on('tb_kelas')->onDelete('null');
         });
     }
 

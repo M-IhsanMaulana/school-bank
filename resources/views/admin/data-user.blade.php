@@ -60,7 +60,19 @@
                                             <td>
                                                 <div class="badge badge-success text-uppercase">{{ $user->role }}</div>
                                             </td>
-                                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                                            <td class="text-center">
+                                                <form action="{{ route('admin.data-user.delete', $user->id) }}" method="POST">
+                                                    @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button type="submit"
+                                                        class="btn btn-icon icon-left btn-danger"
+                                                        id="show"
+                                                        data-toggle="tooltip" title="Delete">
+                                                        <i class="fa-solid fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

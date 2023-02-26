@@ -40,9 +40,27 @@ class AdminController extends Controller
     public function transaksiView()
     {
         $data = Rekening::with(['user', 'kelas'])->get();
-        return view('admin.transaksi', compact('data'));
+        return view('admin.transaksi-setor', compact('data'));
     }
 
+    public function tarikTunaiView()
+    {
+        $data = Rekening::with(['user', 'kelas'])->get();
+        return view('admin.transaksi-tarik', compact('data'));
+    }
+
+    public function detailRek($id)
+    {
+        $rekening = Rekening::where('id', $id)->get();
+        return view('admin.detail-rek', compact('rekening'));
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('admin.data-user')->with('success', 'Berhasil menghapus user dengan id'. $id);
+    }
     public function createKelas(Request $request)
     {
         $this->validate($request, ['name' => ['required']]);
@@ -82,6 +100,19 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->route('admin.data-user')->with('success', 'Berhasil Menambahkan data');
+    }
+
+    public function updateStatus(Request $request)
+    {
+        $this->validate($request, ['status_rek' => 'required']);
+
+        $status = [
+            'status_rek' => $request->status_rek,
+        ];
+
+        Rekening::where('id', $request->id)->update($status);
+        Alert::success('Berhasil Aktivasi Rekening');
+        return redirect()->route('admin.detail-rekening',$request->id);
     }
 
 }

@@ -76,7 +76,7 @@
                                 </div>
                                 <div class="w-100 d-sm-none"></div>
                                 <div class="float-right mt-sm-0 mt-3">
-                                  <a href="#" class="btn">View Posts <i class="fas fa-chevron-right"></i></a>
+                                  <a href="#" class="btn">Setoran Uang <i class="fas fa-chevron-right"></i></a>
                                 </div>
                               </div>
                         </div>

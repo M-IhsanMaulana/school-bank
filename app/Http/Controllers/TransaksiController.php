@@ -32,6 +32,25 @@ class TransaksiController extends Controller
             'saldo_transaksi' => $request->jumlah_setoran,
         ]);
         $transaksi->save();
-        return redirect()->route('admin.transaksi')->with('success', 'Setoran untuk rekening '. $request->no_rek. ' sejumlah '. $request->jumlah_setoran . ' berhasil dengan kode '. $transaksi->kode_transaksi);
+        return redirect()->route('admin.transaksi-setor')->with('success', 'Setoran untuk rekening '. $request->no_rek. ' sejumlah '. $request->jumlah_setoran . ' berhasil dengan kode '. $transaksi->kode_transaksi);
+    }
+
+    public function tarikTunai(Request $request)
+    {
+        $rekening = Rekening::where('no_rekening', $request->no_rek)->get();
+        $kalkusaldo = $rekening[0]->total_saldo - $request->jumlah_penarikan;
+        //dd($kalkusaldo);
+        $saldo = [
+            "total_saldo" => $kalkusaldo,
+        ];
+        Rekening::where('no_rekening', $request->no_rek)->update($saldo);
+        $transaksi = Transaksi::create([
+            'rekening_id' => $rekening[0]->id,
+            'tgl_transaksi' => Carbon::now()->toDateTimeString(),
+            'jenis_transaksi' => $request->jenis_transaksi,
+            'saldo_transaksi' => $request->jumlah_penarikan,
+        ]);
+        $transaksi->save();
+        return redirect()->route('admin.transaksi-tarik')->with('success', 'Penarikan saldo sebesar Rp. '. $request->jumlah_penarikan . 'untuk rekening ' . $request->no_rek . ' dengan kode '. $transaksi->kode_transaksi);
     }
 }

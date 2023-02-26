@@ -120,13 +120,13 @@
                             Have account? <a href="{{ route('login') }}">Please login</a>
                         </div>
                         <div class="simple-footer footer">
-                            <div class="mb-2 mb-md-0">
-                                ©
-                                <script>
+                            <div class="">
+                                Copyright &copy; <script>
                                     document.write(new Date().getFullYear());
-                                </script>
-                                , made with ❤️ by
-                                <a href="" target="_blank" class="footer-link fw-bolder">Ihsan Maulana</a>
+                                </script> <div class="bullet"></div> Created By <a href="#">Muhammad Ihsan Maulana</a>
+                            </div>
+                            <div class="footer-right">
+
                             </div>
                         </div>
                     </div>

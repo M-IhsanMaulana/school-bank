@@ -296,40 +296,24 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Dashboard</li>
                         <li class="{{ Request::segment(2) === null ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.home') }}"><i class="fas fa-dashboard"></i>
+                            <a class="nav-link" href="{{ route('user.home') }}"><i class="fas fa-dashboard"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="menu-header">Master Data</li>
+                        <li class="menu-header">Bank Activity</li>
                         <li class="{{ Request::segment(2) === 'data-user' ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.data-user') }}"><i class="fas fa-user-alt"></i>
-                                <span>Data User</span>
+                            <a class="nav-link" href="{{ route('user.my-rek') }}"><i class="fas fa-user-alt"></i>
+                                <span>Rekening Anda</span>
                             </a>
                         </li>
                         <li class="{{ Request::segment(2) === 'data-kelas' ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.data-kelas') }}"><i class="fas fa-school"></i>
-                                <span>Data Kelas</span>
+                            <a class="nav-link" href="{{ route('user.home') }}"><i class="fas fa-school"></i>
+                                <span>Riwayat Transaksi</span>
                             </a>
                         </li>
                         <li class="{{ Request::segment(2) === 'data-rekening' ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.data-rekening') }}"><i class="fas fa-bank"></i>
-                                <span>Data Rekening</span>
-                            </a>
-                        </li>
-                        <li class="menu-header">Bank Transaction</li>
-                        <li class="{{ Request::segment(2) === 'data-transaksi' ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.data-transaksi') }}"><i class="fas fa-money-bill-alt"></i>
-                                <span>Data Transaksi</span>
-                            </a>
-                        </li>
-                        <li class="{{ Request::segment(2) === 'setor-tunai' ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.transaksi-setor') }}"><i class="fas fa-suitcase"></i>
-                                <span>Setor Tunai</span>
-                            </a>
-                        </li>
-                        <li class="{{ Request::segment(2) === 'tarik-tunai' ? 'active' : null }}">
-                            <a class="nav-link" href="{{ route('admin.transaksi-tarik') }}"><i class="fas fa-credit-card-alt"></i>
-                                <span>Tarik Tunai</span>
+                            <a class="nav-link" href="{{ route('user.home') }}"><i class="fas fa-bank"></i>
+                                <span>Pengajuan Rekening</span>
                             </a>
                         </li>
                     </ul>
@@ -346,8 +330,9 @@
             @yield('content')
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad
-                        Nauval Azhar</a>
+                    Copyright &copy; <script>
+                        document.write(new Date().getFullYear());
+                    </script> <div class="bullet"></div> Created By <a href="#">Muhammad Ihsan Maulana</a>
                 </div>
                 <div class="footer-right">
 

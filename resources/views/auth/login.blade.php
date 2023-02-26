@@ -93,8 +93,15 @@
                         <div class="mt-5 text-muted text-center">
                             Don't have an account? <a href="{{ route('register') }}">Create One</a>
                         </div>
-                        <div class="simple-footer">
-                            Copyright &copy; Stisla 2018
+                        <div class="simple-footer footer">
+                            <div class="">
+                                Copyright &copy; <script>
+                                    document.write(new Date().getFullYear());
+                                </script> <div class="bullet"></div> Created By <a href="#">Muhammad Ihsan Maulana</a>
+                            </div>
+                            <div class="footer-right">
+
+                            </div>
                         </div>
                     </div>
                 </div>

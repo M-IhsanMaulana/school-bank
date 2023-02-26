@@ -53,7 +53,7 @@
                             <td>{{ $rekening->kelas->name }}</td>
                             <td>{{ $rekening->no_rekening }}</td>
                             <td>{{ $rekening->status_rek }}</td>
-                            <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                            <td><a href="{{ route('admin.detail-rekening', $rekening->id) }}" class="btn btn-secondary">Detail</a></td>
                           </tr>
                         @endforeach
                       </tbody>

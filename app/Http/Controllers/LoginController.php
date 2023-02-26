@@ -24,7 +24,7 @@ class LoginController extends Controller
             if (auth()->user()->role == 'admin') {
                 return redirect()->route('admin.home')->with('success', 'Berhasil Masuk');
             } else {
-                return redirect()->route('home');
+                return redirect()->route('user.home');
             }
         } else {
             return redirect()->route('login')->with('error', 'Wrong email or password');

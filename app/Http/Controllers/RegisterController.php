@@ -28,6 +28,11 @@ class RegisterController extends Controller
             'email' => ['required', 'email', 'unique:users,email'],
             'username' => ['required', 'unique:users,username'],
             'password' => ['required', 'min:7'],
+        ],
+        [
+            'required' => 'Mohon maaf :attribute harus diisi',
+            'username.unique' => 'Mohon maaf username harus berisikan karakter unik',
+            'min' => 'Password harus memiliki minimal :min karakter'
         ]);
 
         $user = User::create([
